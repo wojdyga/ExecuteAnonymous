@@ -1,0 +1,7 @@
+# build.properties
+#
+sf.username = 
+sf.password = 
+#sf.serverurl = https://login.salesforce.com
+sf.serverurl = https://test.salesforce.com
+deploy.trace = true

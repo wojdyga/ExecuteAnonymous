@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="Test1" basedir="." default="testall">
+    <taskdef name="anonExec" classname="AnonymousExecuter" classpath="../dist/ExecuteAnonymous.jar"/>
+
+    <property file="build.properties" />
+
+    <target name="testcode" description="Test where code param given">
+        <anonExec code="System.debug(true);" username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" trace="${deploy.trace}"/>
+    </target>
+
+    <target name="testboth" description="Test where code and file name param given">
+        <anonExec code="System.debug(true);" fileName="test.script" username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" trace="${deploy.trace}"/>
+    </target>
+
+    <target name="testfile" description="Test where file name param given">
+        <anonExec fileName="test.script" username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" trace="${deploy.trace}"/>
+    </target>
+
+    <target name="testall" depends="testcode,testboth,testfile"/>
+</project>
